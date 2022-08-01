@@ -1,5 +1,3 @@
-package DebugPractice;
-
 /**
  * Created by jug on 1/22/18.
  */
