@@ -1,3 +1,5 @@
+package Intlist;
+
 import java.util.Formatter;
 
 /**
@@ -228,6 +230,7 @@ public class IntList {
             }
         }
         out.format(")");
+        out.close();
         return out.toString();
     }
 }
