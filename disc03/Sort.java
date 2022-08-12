@@ -1,6 +1,6 @@
 public class Sort {
     /** Sorts strings destructively. */
-    public static void sort(String[] x) { 
+    public static void sort(String[] x) {
            sort(x, 0);
     }
 
