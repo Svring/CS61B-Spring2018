@@ -1,4 +1,4 @@
-import java.math.*;
+//import java.math.*;
 
 /**
  *  Tests Planet's update() method

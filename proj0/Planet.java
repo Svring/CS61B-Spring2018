@@ -77,4 +77,17 @@ public class Planet {
         }
         return force;
     }
+
+    public void update(double dt, Double forceX, Double forceY) {
+        double accelerateX = forceX / mass;
+        double accelerateY = forceY / mass;
+        xxVel += accelerateX * dt;
+        yyVel += accelerateY * dt;
+        xxPos += xxVel * dt;
+        yyPos += yyVel * dt;
+    }
+
+    public void draw() {
+        StdDraw.picture(xxPos, yyPos, "images/" + imgFileName);
+    }
 }
