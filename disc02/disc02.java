@@ -1,4 +1,20 @@
 public class disc02 {
+
+    public static class IntList {
+        public int first;
+        public IntList rest;        
+    
+        public IntList(int f, IntList r) {
+            first = f;
+            rest = r;
+        }
+    
+        public IntList() {
+            first = 0;
+            rest = null;
+        }
+    }
+
     public static IntList square(IntList L) {
         if (L == null) {
             return null;
@@ -31,20 +47,5 @@ public class disc02 {
             L.first = L.first * L.first;
             squareMutativerecur(L.rest);
         }
-    }
-}
-
-class IntList {
-    public int first;
-    public IntList rest;        
-
-    public IntList(int f, IntList r) {
-        first = f;
-        rest = r;
-    }
-
-    public IntList() {
-        first = 0;
-        rest = null;
     }
 }
