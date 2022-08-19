@@ -86,4 +86,16 @@ public class LinkedListDeque<T> {
             index--;
         } return p.item;
     }
+
+    public T getRecursion(int index) {
+        return helper(index, this.sentinel);
+    }
+
+    public T helper(int index, node<T> L) {
+        if (index == 0 || index > size) {
+            return L.item;
+        } else {
+            return helper(index--, L.next);
+        }
+    }
 }
