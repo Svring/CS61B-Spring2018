@@ -22,7 +22,7 @@ class SLList {
                 return;
             } else {
                 p = p.next;
-                pos --;
+                pos--;
             }
         }
         p.next = new IntNode(item, p.next);
