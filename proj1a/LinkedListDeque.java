@@ -1,15 +1,15 @@
 public class LinkedListDeque<T> {
 
     /* abstraction level one */
-    public static class node<T> {
+    public class node {
 
         /* instance variebles */
-        public T item;
-        public node<T> next;
-        public node<T> prev;
+        private T item;
+        private node next;
+        private node prev;
 
         /* initialize */
-        public node(T i, node<T> n, node<T> p){
+        public node(T i, node n, node p){
             item = i;
             next = n;
             prev = p;
@@ -22,7 +22,7 @@ public class LinkedListDeque<T> {
     }
 
     /* abstraction level two */
-    public node<T> sentinel = new node<>();
+    public node sentinel = new node();
     public int size = 0;
 
     public LinkedListDeque() {
@@ -31,13 +31,13 @@ public class LinkedListDeque<T> {
     }
 
     public void addFirst(T var) {
-        sentinel.next = new node<>(var, sentinel.next, sentinel.prev);
+        sentinel.next = new node(var, sentinel.next, sentinel.prev);
         sentinel.prev = sentinel.prev.next;
         size += 1;
     }
 
     public void addLast(T var) {
-        sentinel.prev.next = new node<>(var, sentinel, sentinel.prev);
+        sentinel.prev.next = new node(var, sentinel, sentinel.prev);
         sentinel.prev = sentinel.prev.next;
         size += 1;
     }
@@ -55,7 +55,7 @@ public class LinkedListDeque<T> {
     }
 
     public void printDeque() {
-        node<T> p = sentinel.next;
+        node p = sentinel.next;
         for (int i = 0; i < size; i++) {
             System.out.print(p.item + " ");
             p = p.next;
@@ -63,7 +63,7 @@ public class LinkedListDeque<T> {
     }
 
     public T removeFirst() {
-        node<T> p = sentinel.next;
+        node p = sentinel.next;
         sentinel.next = sentinel.next.next;
         sentinel.next.prev = sentinel;
         size--;
@@ -71,7 +71,7 @@ public class LinkedListDeque<T> {
     }
 
     public T removeLast() {
-        node<T> p = sentinel.prev;
+        node p = sentinel.prev;
         sentinel.prev = sentinel.prev.prev;
         sentinel.prev.next = sentinel;
         size--;
@@ -80,7 +80,7 @@ public class LinkedListDeque<T> {
 
     public T get(int index) {
         if (index > size) return null;
-        node<T> p = sentinel;
+        node p = sentinel;
         while (index > 0) {
             p = p.next;
             index--;
@@ -91,7 +91,7 @@ public class LinkedListDeque<T> {
         return helper(index, this.sentinel);
     }
 
-    public T helper(int index, node<T> L) {
+    public T helper(int index, node L) {
         if (index == 0 || index > size) {
             return L.item;
         } else {
