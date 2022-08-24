@@ -2,12 +2,14 @@ public class ArrayDeque<T> {
 
     private T[] items;
     private int size;
+    private int length;
     private int nextFirst;
     private int nextLast;
 
     public ArrayDeque() {
         items = (T []) new Object[8];
-        size = 8;
+        size = 0;
+        length = 8;
         nextFirst = 7;
         nextLast = 0;
     }
@@ -31,11 +33,7 @@ public class ArrayDeque<T> {
     }
 
     public boolean isEmpty() {
-        if (items == null) {
-            return true;
-        } else {
-            return false;
-        }
+        return size == 0;
     }
 
     public void printDeque() {
@@ -70,21 +68,21 @@ public class ArrayDeque<T> {
     }
 
     private void resize() {
-        if (nextFirst == nextLast) {
+        if (size == length - 1) {
             int pos = nextFirst;
-            T[] newitems = (T []) new Object[size * 2];
+            T[] newitems = (T []) new Object[length * 2];
             System.arraycopy(items, 0, newitems, 0, pos);
             System.arraycopy(items, pos, newitems, newitems.length - (size - pos), size - pos);
             items = newitems;
             nextFirst = newitems.length - pos - 1;
-            size = size * 2;
+            length = length * 2;
         } else if (size >= 16 && ratio() <= 0.25) {
-            T[] newitems = (T []) new Object[size / 2];
+            T[] newitems = (T []) new Object[length / 2];
             System.arraycopy(items, 0, newitems, 0, nextLast);
             System.arraycopy(items, nextFirst + 1, newitems, newitems.length - (items.length - nextFirst) + 1, (items.length - nextFirst) - 1);
             items = newitems;
             nextFirst = newitems.length - (items.length - nextFirst);
-            size = size / 2;
+            length = length / 2;
         }
     }
 
