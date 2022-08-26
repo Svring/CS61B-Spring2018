@@ -1,4 +1,4 @@
-public class examprep03 {
+public class examprep3 {
     public static int[] flatten(int[][] x) {
         int totalLength = 0;
 
