@@ -99,7 +99,7 @@ public class ArrayDeque<T> {
             nextLast = ptr;
             items = newitems;
             length *= 2;
-        } else if (size >= 16 && size / length <= 0.25) {
+        } else if (length >= 16 && size / length <= 0.25) {
             T[] newitems = (T []) new Object[length / 2];
             int ptr = length / 4;
             int front = nextFirst;
