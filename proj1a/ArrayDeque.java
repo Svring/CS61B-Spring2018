@@ -39,21 +39,27 @@ public class ArrayDeque<T> {
     }
 
     public void addFirst(T item) {
-        resize();
+        if (size == length - 1) {
+            resize();
+        }
         nextFirst = minusOne(nextFirst);
         items[nextFirst] = item;
         size++;
     }
 
     public void addLast(T item) {
-        resize();
+        if (size == length - 1) {
+            resize();
+        }
         items[nextLast] = item;
         nextLast = plusOne(nextLast, length);
         size++;
     }
 
     public T removeFirst() {
-        resize();
+        if (length >= 16 && length / size >= 4) {
+            resize();
+        }
         if (size == 0) {
             return null;
         }
@@ -64,7 +70,9 @@ public class ArrayDeque<T> {
     }
 
     public T removeLast() {
-        resize();
+        if (length >= 16 && length / size >= 4) {
+            resize();
+        }
         if (size == 0) {
             return null;
         }
