@@ -98,7 +98,7 @@ public class ArrayDeque<T> {
             T[] newitems = (T []) new Object[length * 2];
             int ptr = length;
             int front = nextFirst;
-            while (ptr != nextLast) {
+            while (front != nextLast) {
                 newitems[ptr] = items[front];
                 front = plusOne(front, length);
                 ptr = plusOne(ptr, length * 2);
@@ -107,11 +107,11 @@ public class ArrayDeque<T> {
             nextLast = ptr;
             items = newitems;
             length *= 2;
-        } else if (length >= 16 && size / length <= 0.25) {
+        } else if (length >= 16 && length / size >= 4) {
             T[] newitems = (T []) new Object[length / 2];
             int ptr = length / 4;
             int front = nextFirst;
-            while (ptr != nextLast) {
+            while (front != nextLast) {
                 newitems[ptr] = items[front];
                 front = plusOne(front, length);
                 ptr = plusOne(ptr, length / 2);

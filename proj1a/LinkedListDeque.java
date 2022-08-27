@@ -107,7 +107,7 @@ public class LinkedListDeque<T> {
         if (index == 0) {
             return L.item;
         } else {
-            return helper(index--, L.next);
+            return helper(index - 1, L.next);
         }
     }
 }
