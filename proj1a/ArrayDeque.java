@@ -6,28 +6,6 @@ public class ArrayDeque<T> {
     private int nextFirst;
     private int nextLast;
 
-    public ArrayDeque() {
-        items = (T []) new Object[8];
-        size = 0;
-        length = 8;
-        nextFirst = 7;
-        nextLast = 0;
-    }
-
-    public void addFirst(T item) {
-        items[nextFirst] = item;
-        nextFirst--;
-        size++;
-        resize();
-    }
-
-    public void addLast(T item) {
-        items[nextLast] = item;
-        nextLast++;
-        size++;
-        resize();
-    }
-
     public int size() {
         return size;
     }
@@ -36,57 +14,112 @@ public class ArrayDeque<T> {
         return size == 0;
     }
 
-    public void printDeque() {
-        for (int i = nextFirst + 1; i < items.length; i++) {
-            System.out.print(items[i] + " ");
+    private int minusOne(int index) {
+        if (index == 0) {
+            return length - 1;
         }
-        for (int i = 0; i < nextLast; i++) {
-            System.out.print(items[i] + " ");
+        return index - 1;
+    }
+
+    private int plusOne(int index, int module) {
+        index %= module;
+        if (index == module - 1) {
+            return 0;
         }
+        return index + 1;
+    }
+
+    @SuppressWarnings("unchecked")
+    public ArrayDeque() {
+        items = (T []) new Object[8];
+        size = 0;
+        length = 8;
+        nextFirst = 4;
+        nextLast = 4;
+    }
+
+    public void addFirst(T item) {
+        resize();
+        nextFirst = minusOne(nextFirst);
+        items[nextFirst] = item;
+        size++;
+    }
+
+    public void addLast(T item) {
+        resize();
+        items[nextLast] = item;
+        nextLast = plusOne(nextLast, length);
+        size++;
     }
 
     public T removeFirst() {
-        T ans = items[nextFirst + 1];
-        items[nextFirst + 1] = null;
-        nextFirst++;
-        size--;
         resize();
+        if (size == 0) {
+            return null;
+        }
+        T ans = items[nextFirst];
+        nextFirst = plusOne(nextFirst, length);
+        size--;
         return ans;
     }
 
     public T removeLast() {
-        T ans = items[nextLast - 1];
-        items[nextLast - 1] = null;
-        nextLast--;
-        size--;
         resize();
-        return ans;
+        if (size == 0) {
+            return null;
+        }
+        nextLast = minusOne(nextLast);
+        size--;
+        return items[nextLast];
     }
 
     public T get(int index) {
-        return items[index];
+        if (index >= size) {
+            return null;
+        }
+        int p = nextFirst;
+        for (int i = 0; i < index; i++) {
+            p = plusOne(p, length);
+        }
+        return items[p];
     }
 
+    @SuppressWarnings("unchecked")
     private void resize() {
         if (size == length - 1) {
-            int pos = nextFirst;
             T[] newitems = (T []) new Object[length * 2];
-            System.arraycopy(items, 0, newitems, 0, pos);
-            System.arraycopy(items, pos, newitems, newitems.length - (size - pos), size - pos);
+            int ptr = length;
+            int front = nextFirst;
+            while (ptr != nextLast) {
+                newitems[ptr] = items[front];
+                front = plusOne(front, length);
+                ptr = plusOne(ptr, length * 2);
+            }
+            nextFirst = length;
+            nextLast = ptr;
             items = newitems;
-            nextFirst = newitems.length - pos - 1;
-            length = length * 2;
-        } else if (size >= 16 && ratio() <= 0.25) {
+            length *= 2;
+        } else if (size >= 16 && size / length <= 0.25) {
             T[] newitems = (T []) new Object[length / 2];
-            System.arraycopy(items, 0, newitems, 0, nextLast);
-            System.arraycopy(items, nextFirst + 1, newitems, newitems.length - (items.length - nextFirst) + 1, (items.length - nextFirst) - 1);
+            int ptr = length / 4;
+            int front = nextFirst;
+            while (ptr != nextLast) {
+                newitems[ptr] = items[front];
+                front = plusOne(front, length);
+                ptr = plusOne(ptr, length / 2);
+            }
+            nextFirst = length / 4;
+            nextLast = ptr;
             items = newitems;
-            nextFirst = newitems.length - (items.length - nextFirst);
-            length = length / 2;
+            length /= 2;
         }
     }
 
-    private int ratio() {
-        return (1 - (nextFirst - nextLast) / size);
+    public void printDeque() {
+        int p = nextFirst;
+        while (p != nextLast) {
+            System.out.print(items[p] + " ");
+            p = plusOne(p, length);
+        }
     }
 }
