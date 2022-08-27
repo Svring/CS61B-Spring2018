@@ -22,12 +22,14 @@ public class LinkedListDeque<T> {
     }
 
     /* abstraction level two */
-    public node sentinel = new node();
-    public int size = 0;
+    public node sentinel;
+    public int size;
 
     public LinkedListDeque() {
+        sentinel = new node();
         sentinel.next = sentinel;
         sentinel.prev = sentinel;
+        size = 0;
     }
 
     public void addFirst(T var) {
@@ -43,11 +45,7 @@ public class LinkedListDeque<T> {
     }
 
     public boolean isEmpty() {
-        if (size == 0) {
-            return true;
-        } else {
-            return false;
-        }
+        return size == 0;
     }
 
     public int size() {
@@ -56,7 +54,7 @@ public class LinkedListDeque<T> {
 
     public void printDeque() {
         node p = sentinel.next;
-        for (int i = 0; i < size; i++) {
+        while (p != sentinel) {
             System.out.print(p.item + " ");
             p = p.next;
         }
