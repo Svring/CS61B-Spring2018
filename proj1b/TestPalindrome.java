@@ -31,7 +31,7 @@ public class TestPalindrome {
     }
 
     @Test
-    public void TestisPalindrome_v2() {
+    public void testnewisPalindrome() {
         CharacterComparator ob = new OffByOne();
         String puppet0 = "flake";
         String puppet1 = "word";
