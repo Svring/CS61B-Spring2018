@@ -1,12 +1,36 @@
-@SuppressWarnings("unchecked")
+import java.util.*;
+
 public class ArraySet<T> {
+
+    private class ArraySetIterator implements Iterator<T> {
+        private int wizPos;
+    
+        public ArraySetIterator() {
+            wizPos = 0;
+        }
+    
+        public boolean hasNext() {
+            return wizPos < size;
+        }
+    
+        public T next() {
+            T returnItem = set[wizPos];
+            wizPos += 1;
+            return returnItem;
+        }
+    }
 
     private T[] set;
     private int size;
 
+    @SuppressWarnings("unchecked")
     public ArraySet() {
         set = (T[]) new Object[8];
         size = 0;
+    }
+
+    public Iterator<T> iterator() {
+        return new ArraySetIterator();
     }
 
     /* Returns true if this map contains a mapping for the specified key.
