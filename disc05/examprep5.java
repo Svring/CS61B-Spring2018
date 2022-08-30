@@ -65,6 +65,7 @@ public class examprep5 {
     }
 
     /* This method work incorrectly on my laptop, yet this is not my fault */
+    /* 
     public class SortedStack<T> implements Comparable<T>{
 
         private Stack<T> a;
@@ -94,4 +95,5 @@ public class examprep5 {
             return a.pop();
         }
     }
+    */
 }
