@@ -6,6 +6,7 @@ import java.awt.Color;
 import java.awt.Font;
 import java.util.Random;
 
+@SuppressWarnings("unused")
 public class MemoryGame {
     private int width;
     private int height;
