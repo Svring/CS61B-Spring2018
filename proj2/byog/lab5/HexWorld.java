@@ -2,30 +2,81 @@ package byog.lab5;
 
 import org.junit.Test;
 import static org.junit.Assert.*;
-
 import byog.TileEngine.TERenderer;
 import byog.TileEngine.TETile;
 import byog.TileEngine.Tileset;
-
 import java.util.Random;
 
-import javax.swing.text.Position;
+//import javax.swing.text.Position;
+/* try to call it but failed, so I just comment it out */
 
 /**
  * Draws a world consisting of hexagonal regions.
  */
 public class HexWorld {
+    private static final int WIDTH = 50;
+    private static final int HEIGHT = 50;
+
+    private static final long SEED = 114514;
+    private static final Random RANDOM = new Random(SEED);
+
+    public static void main(String[] args) {
+        TERenderer ter = new TERenderer();
+        ter.initialize(WIDTH, HEIGHT);
+
+        TETile[][] randomTiles = new TETile[WIDTH][HEIGHT];
+        fillWithNothing(randomTiles);
+        Position p = new Position(13, 16);
+        createHexWorld(randomTiles, p, 3);
+
+        ter.renderFrame(randomTiles);
+    }
+
+    public static void fillWithNothing(TETile[][] tiles) {
+        int height = tiles[0].length;
+        int width = tiles.length;
+        for (int x = 0; x < width; x += 1) {
+            for (int y = 0; y < height; y += 1) {
+                tiles[x][y] = Tileset.NOTHING;
+            }
+        }
+    }
 
     /**
-     * symbol of the position of lower left cornor of hex
+     * draw a hexworld on the canvas
+     * @param world the world to draw on
+     * @param p position of lower left cornor of the lower left hex
+     * @param s size of each hex
      */
-    private static class Position {
-        public int x;
-        public int y;
+    public static void createHexWorld(TETile[][] world, Position p, int s) {
+        int que[] = {3, 4, 5, 4, 3}; 
+        for (int i = 0; i < 5; i++) {
+            int x = p.x + (s * 2 - 1) * i;
+            int y;
+            if (i < 3) {
+                y = p.y - s * i;
+            } else {
+                y = p.y - s * (4 - i);
+            }
+            int n = que[i];
+            Position pos = new Position(x, y);
+            addHexagonColumn(world, pos, s, n);
+        }
+    }
 
-        public Position(int px, int py) {
-            x = px;
-            y = py;
+    /**
+     * draw a column of hex on the world
+     * @param world the world to draw on
+     * @param p position of the lowest hex of the column
+     * @param s size of each hex
+     * @param n number of hex of the column
+     */
+    public static void addHexagonColumn(TETile[][] world, Position p, int s, int n) {
+        for (int i = 0; i < n; i++) {
+            int x = p.x;
+            int y = p.y + (s * 2) * i;
+            Position pos = new Position(x, y);
+            addHexagon(world, pos, s, randomTile());
         }
     }
 
@@ -60,7 +111,7 @@ public class HexWorld {
         for (int i = 0; i < width; i++) {
             int x = p.x + i;
             int y = p.y;
-            world[x][y] = t;
+            world[x][y] = TETile.colorVariant(t, 32, 32, 32, RANDOM);
         }
     }
 
@@ -88,6 +139,33 @@ public class HexWorld {
             return hexOffSet(s, s * 2 - i - 1);
         }
         return -i;
+    }
+    
+    /** Picks a RANDOM tile with a 33% change of being
+     *  a wall, 33% chance of being a flower, and 33%
+     *  chance of being empty space.
+     */
+    private static TETile randomTile() {
+        int tileNum = RANDOM.nextInt(3);
+        switch (tileNum) {
+            case 0: return Tileset.WALL;
+            case 1: return Tileset.FLOWER;
+            case 2: return Tileset.WATER;
+            default: return Tileset.NOTHING;
+        }
+    }
+
+    /**
+     * symbol of the position of lower left cornor of hex
+     */
+    private static class Position {
+        private int x;
+        private int y;
+
+        public Position(int px, int py) {
+            x = px;
+            y = py;
+        }
     }
 
 
