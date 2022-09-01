@@ -51,4 +51,9 @@ public class TestArrayDequeGold {
         message += m;
         return message;
     }
+
+    public static void main(String[] args) {
+        TestArrayDequeGold l = new TestArrayDequeGold();
+        l.test();
+    }
 }
