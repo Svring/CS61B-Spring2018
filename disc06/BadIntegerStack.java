@@ -1,5 +1,5 @@
 public class BadIntegerStack {
-    public class Node {
+    private class Node {
         public Integer value;
         public Node prev;
 
@@ -37,7 +37,7 @@ public class BadIntegerStack {
         } catch (NullPointerException e) {
             System.out.println("Success!");
         }
-        */
+         */
 
         /* BadIntegerStack stack = new BadIntegerStack();
         stack.push(1);
