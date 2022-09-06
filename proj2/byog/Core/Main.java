@@ -1,6 +1,6 @@
-package byog.Core;
+package proj2.byog.Core;
 
-import byog.TileEngine.TETile;
+import proj2.byog.TileEngine.TETile;
 
 /** This is the main entry point for the program. This class simply parses
  *  the command line inputs, and lets the byog.Core.Game class take over

@@ -1,3 +1,5 @@
+package proj1gold;
+
 @SuppressWarnings("unchecked")
 public class StudentArrayDeque<T> {
     private T[] a = (T[]) (new Object[8]);

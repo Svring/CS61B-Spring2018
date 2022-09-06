@@ -1,3 +1,5 @@
+package disc03;
+
 public class disc03 {
     @SuppressWarnings("unused")
     private class SLList {

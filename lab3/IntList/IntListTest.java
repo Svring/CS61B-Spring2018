@@ -1,4 +1,4 @@
-package IntList;
+package lab3.IntList;
 
 import static org.junit.Assert.*;
 

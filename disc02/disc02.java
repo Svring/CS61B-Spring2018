@@ -1,3 +1,5 @@
+package disc02;
+
 public class disc02 {
 
     public static class IntList {

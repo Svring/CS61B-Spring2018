@@ -1,4 +1,4 @@
-package DebugPractice;
+package lab2.DebugPractice;
 
 /**
  * Exercise to showcase the step over button.

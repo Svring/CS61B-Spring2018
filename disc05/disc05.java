@@ -1,3 +1,5 @@
+package disc05;
+
 import java.util.Stack;
 
 public class disc05 {

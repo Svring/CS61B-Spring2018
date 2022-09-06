@@ -1,3 +1,5 @@
+package proj0;
+
 /******************************************************************************
  *  Compilation:  javac StdDraw.java
  *  Execution:    java StdDraw

@@ -1,3 +1,5 @@
+package disc06;
+
 public class Car {
     public Car(boolean isCompact, boolean isHandicapped) {};
 

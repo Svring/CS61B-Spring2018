@@ -1,3 +1,5 @@
+package disc06;
+
 import java.util.LinkedList;
 import java.util.List;
 

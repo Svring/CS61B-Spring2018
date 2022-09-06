@@ -1,4 +1,4 @@
-package Flik;
+package lab3.Flik;
 
 public class HorribleSteve {
     public static void main(String [] args) {

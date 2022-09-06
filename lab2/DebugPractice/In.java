@@ -1,4 +1,4 @@
-package DebugPractice;
+package lab2.DebugPractice;
 
 /*************************************************************************
  *  Compilation:  javac In.java

@@ -1,3 +1,5 @@
+package disc04;
+
 public class disc04 {
     public class Animal {
         protected String name, noise;

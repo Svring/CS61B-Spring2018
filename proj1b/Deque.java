@@ -1,3 +1,5 @@
+package proj1b;
+
 public interface Deque<T> {
 
     /**

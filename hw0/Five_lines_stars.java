@@ -1,3 +1,5 @@
+package hw0;
+
 public class Five_lines_stars {
     public static void main(String[] args) {
         int i = 1;

@@ -1,3 +1,7 @@
+package proj1gold;
+
+import proj0.examples.StdRandom;
+
 /** If you project is set up properly, this file should execute. 
 * One thing you might consider is to try printing out the sequence of
 * operations */

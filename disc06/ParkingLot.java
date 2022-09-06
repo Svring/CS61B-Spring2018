@@ -1,3 +1,5 @@
+package disc06;
+
 public class ParkingLot {
     public ParkingLot(int[] handicappedDistances, int[] compactDistances, int[] regularDistances) {
 

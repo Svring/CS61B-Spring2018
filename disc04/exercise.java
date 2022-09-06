@@ -1,4 +1,8 @@
+package disc04;
+
 import java.util.*;
+
+import lab2.DebugPractice.In;
 
 public class exercise {
     public static List<String> getwords(String filename) {

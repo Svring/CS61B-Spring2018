@@ -1,3 +1,5 @@
+package hw0;
+
 public class Max {
     /** Returns the maximum value from m. */
     public static int max(int[] m) {

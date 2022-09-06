@@ -1,3 +1,7 @@
+package proj1a;
+
+import proj1b.Deque;
+
 public class LinkedListDeque<T> implements Deque<T> {
 
     /* abstraction level one */

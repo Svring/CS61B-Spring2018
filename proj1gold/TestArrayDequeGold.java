@@ -1,5 +1,9 @@
+package proj1gold;
+
 import static org.junit.Assert.*;
 import org.junit.Test;
+
+import proj0.examples.StdRandom;
 
 /* The only thing could put you down is THE AMOUNT OF DATA */
 public class TestArrayDequeGold {

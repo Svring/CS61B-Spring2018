@@ -1,4 +1,4 @@
-package DebugPractice;
+package lab2.DebugPractice;
 
 /**
  * Created by jug on 1/22/18.

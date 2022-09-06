@@ -1,4 +1,4 @@
-package IntList;
+package lab3.IntList;
 
 import java.util.Formatter;
 

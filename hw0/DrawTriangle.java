@@ -1,3 +1,5 @@
+package hw0;
+
 public class DrawTriangle {
 
     public static void drawTriangle(int N) {

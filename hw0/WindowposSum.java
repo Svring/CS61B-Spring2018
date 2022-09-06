@@ -1,3 +1,5 @@
+package hw0;
+
 public class WindowposSum {
     public static void windowPosSum(int[] a, int n) {
         /** your code here */ 

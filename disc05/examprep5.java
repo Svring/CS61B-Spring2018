@@ -1,3 +1,5 @@
+package disc05;
+
 import java.util.*;
 
 public class examprep5 {

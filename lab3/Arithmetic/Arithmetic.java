@@ -1,4 +1,4 @@
-package Arithmetic;
+package lab3.Arithmetic;
 
 public class Arithmetic {
     /** Computes product of two ints */

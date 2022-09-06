@@ -1,3 +1,5 @@
+package proj0;
+
 /*************************************************************************
  *  Compilation:  javac StdOut.java
  *  Execution:    java StdOut

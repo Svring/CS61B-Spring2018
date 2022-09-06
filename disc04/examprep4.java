@@ -1,3 +1,5 @@
+package disc04;
+
 import java.util.NoSuchElementException;
 
 public class examprep4 {

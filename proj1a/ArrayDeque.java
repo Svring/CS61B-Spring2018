@@ -1,3 +1,7 @@
+package proj1a;
+
+import proj1b.Deque;
+
 public class ArrayDeque<T> implements Deque<T> {
 
     private T[] items;

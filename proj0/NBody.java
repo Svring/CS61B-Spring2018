@@ -1,3 +1,5 @@
+package proj0;
+
 public class NBody {
     @SuppressWarnings("unused")
     public static double readRadius(String address) {

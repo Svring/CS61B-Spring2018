@@ -1,3 +1,5 @@
+package proj0.examples;
+
 /******************************************************************************
  *  Compilation:  javac StdRandom.java
  *  Execution:    java StdRandom
@@ -46,6 +48,8 @@
  ******************************************************************************/
 
 import java.util.Random;
+
+import proj0.StdOut;
 
 /**
  *  The {@code StdRandom} class provides static methods for generating

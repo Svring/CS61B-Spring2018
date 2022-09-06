@@ -1,3 +1,7 @@
+package proj0.examples;
+
+import proj0.StdDraw;
+
 /* 
  *
  * Make sure to see the more detailed description of

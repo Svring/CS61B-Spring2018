@@ -1,3 +1,7 @@
+package proj0.examples;
+
+import proj0.In;
+
 /** Simpler demo of the In class. */
 public class BasicInDemo {
 	public static void main(String[] args) {

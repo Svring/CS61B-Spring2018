@@ -1,3 +1,5 @@
+package disc02;
+
 public class AList {
     private int[] items;
     private int size;

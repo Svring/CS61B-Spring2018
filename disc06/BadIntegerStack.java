@@ -1,3 +1,5 @@
+package disc06;
+
 public class BadIntegerStack {
     private class Node {
         public Integer value;
