@@ -1,6 +1,7 @@
 package hw1.synthesizer;
+
 import org.junit.Test;
-import static org.junit.Assert.*;
+//import static org.junit.Assert.*;
 
 /** Tests the ArrayRingBuffer class.
  *  @author Josh Hug
@@ -9,7 +10,7 @@ import static org.junit.Assert.*;
 public class TestArrayRingBuffer {
     @Test
     public void someTest() {
-        //ArrayRingBuffer arb = new ArrayRingBuffer(10);
+        //ArrayRingBuffer<Integer> arb = new ArrayRingBuffer<>(10);
     }
 
     /** Calls tests for ArrayRingBuffer. */
