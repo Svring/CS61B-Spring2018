@@ -1,6 +1,6 @@
 package proj2.byog.lab6;
 
-import edu.princeton.cs.introcs.StdDraw;
+import proj0.StdDraw;
 
 import java.awt.Color;
 import java.awt.Font;
